@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const { v4 } = require("uuid");
+const checkAuth = require("../middleware/checkAuth");
 
 let todos = [];
 
-router.get("", (req, res) => {
+router.get("",checkAuth, (req, res) => {
     return res.json(todos);
 });
 
